@@ -124,7 +124,7 @@ acces = []
 eval_losses = []
 eval_acces = []
 
-for e in range(1):
+for e in range(30):
     train_loss = 0
     train_acc = 0
     net.train()
