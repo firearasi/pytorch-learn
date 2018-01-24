@@ -148,9 +148,11 @@ for e in range(20):
 
     losses.append(train_loss / len(train_data))
     acces.append(train_acc / len(train_data))
+    torch.save(net.state_dict(), 'models/resnet.pth')
     # 在测试集上检验效果
     eval_loss = 0
     eval_acc = 0
+
     net.eval()  # 将模型改为预测模式
     for im, label in test_data:
         im = Variable(im).cuda()

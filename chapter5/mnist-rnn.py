@@ -43,7 +43,7 @@ class Rnn(nn.Module):
         return out
 
 
-net = Rnn(28, 20, 5, 10)
+net = Rnn(28, 20, 5, 10).cuda()
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adadelta(net.parameters(), 1e-1)
 
@@ -57,8 +57,8 @@ for e in range(10):
     train_acc = 0
     net.train()
     for im, label in train_data:
-        im = Variable(im)  # For 1 channel
-        label = Variable(label)
+        im = Variable(im).cuda()  # For 1 channel
+        label = Variable(label).cuda()
         # 前向传播
         out = net(im)
         loss = criterion(out, label)
@@ -81,8 +81,8 @@ for e in range(10):
     eval_acc = 0
     net.eval()  # 将模型改为预测模式
     for im, label in test_data:
-        im = Variable(im)
-        label = Variable(label)
+        im = Variable(im).cuda()
+        label = Variable(label).cuda()
         out = net(im)
         loss = criterion(out, label)
         # 记录误差

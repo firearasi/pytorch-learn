@@ -170,18 +170,18 @@ for e in range(30):
     print('epoch: {}, Train Loss: {:.6f}, Train Acc: {:.6f}, Eval Loss: {:.6f}, Eval Acc: {:.6f}'
           .format(e, train_loss / len(train_data), train_acc / len(train_data),
                   eval_loss / len(test_data), eval_acc / len(test_data)))
-    torch.save(net.state_dict(), 'models/resnet.pth')
+    torch.save(net.state_dict(), 'models/resnet.pth') #保存参数
 
 plt.subplots(2, 2)
 plt.subplot(2, 2, 1)
 plt.title('train loss')
-plt.plot(np.arange(len(losses)), losses)
+plt.plot(losses)
 plt.subplot(2, 2, 2)
-plt.plot(np.arange(len(acces)), acces)
+plt.plot(acces)
 plt.title('train acc')
 plt.subplot(2, 2, 3)
-plt.plot(np.arange(len(eval_losses)), eval_losses)
+plt.plot(eval_losses)
 plt.title('test loss')
 plt.subplot(2, 2, 4)
-plt.plot(np.arange(len(eval_acces)), eval_acces)
+plt.plot(eval_acces)
 plt.title('test acc')

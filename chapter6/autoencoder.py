@@ -15,7 +15,7 @@ im_tfs = tfs.Compose([
 ])
 
 train_set = MNIST('../data', transform=im_tfs)
-train_data = DataLoader(train_set, batch_size=128, shuffle=True)
+train_data = DataLoader(train_set, batch_size=64, shuffle=True)
 
 class Autoencoder(nn.Module):
     def __init__(self):
